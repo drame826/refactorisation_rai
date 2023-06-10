@@ -240,6 +240,7 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  diff-lcs
   factory_bot_rails
   faker
   gimei
