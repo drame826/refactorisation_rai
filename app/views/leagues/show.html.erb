@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= "#{@league.name} in #{last_year}" %></h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Club</th>
+        <th>Digested Games Count</th>
+        <th>Points *</th>
+        <th>Win</th>
+        <th>Draw</th>
+        <th>Lost</th>
+        <th>Goals</th>
+        <th>Goals Conceded</th>
+        <th>Goals Difference</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @league.table_rows(last_year).each do |row| %>
+        <tr>
+          <td><%= row.rank %></td>
+          <td><%= row.club.name %></td>
+          <td><%= row.digested_games_count %></td>
+          <td><strong><%= row.points %></strong></td>
+          <td><%= row.win %></td>
+          <td><%= row.draw %></td>
+          <td><%= row.lost %></td>
+          <td><%= row.goals %></td>
+          <td><%= row.goals_conceded %></td>
+          <td><%= row.goal_difference %></td>
+        </tr>
+      <% end %>
+    </tbody>
+</table>
+
+<p><%= "* Depending on the result of the match, points will be added as follows:
+        #{League::WIN_POINTS} points per win, #{League::DRAW_POINTS} point per draw, no point per lost" %></p>
+
+<%= link_to 'Back To Match Results', matches_path %>

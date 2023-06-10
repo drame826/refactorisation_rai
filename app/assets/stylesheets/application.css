@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+/* reset user agent stylesheet in Google Chrome */
+body {
+  margin: 0px;
+}
+
+/* moved from scaffolds.scss
+   to avoid apply margin to header */
+.container {
+  background-color: #fff;
+  color: #333;
+  margin: 33px; }
+
+header {
+  background-color: #76ce33;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  text-decoration: none;
+  color: #f5f3f3 !important;
+  line-height: 18px;
+  font-size: 3em;
+  font-weight: bold;
+  margin-block-start: 0.67em;
+  margin-block-end: 0.67em;
+}
+
+.nav-link:hover {
+  color: #dedada !important;
+  background-color: #76ce33;
+}

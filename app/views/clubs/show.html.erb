@@ -1,0 +1,67 @@
+<p id="notice"><%= notice %></p>
+    <h1>
+      <%= @club.name %>
+    </h1>
+
+<section class="wrapper">
+  <%= image_tag @club.logo, size: "250x250" %>
+
+  <div>
+    <p>
+      <strong>Homebase:</strong>
+      <%= @club.homebase %>
+    </p>
+
+    <p>
+      <strong>Established on:</strong>
+      <%= @club.established_on %>
+    </p>
+
+    <p>
+      <strong>Manager:</strong>
+      <%= @club.manager %>
+    </p>
+
+    <p>
+      <strong>Results:</strong>
+      <%= last_year %>: <%= @club.total_result_on(last_year) %>,
+      <%= this_year %>: <%= @club.total_result_on(this_year) %>
+    </p>
+
+    <p>
+      <strong>Players Avarage age</strong>
+      <%= @players_average_age %>
+    </p>
+
+  </div>
+</section>
+
+<section>
+  <p>
+    <h1>Players:</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>position</th>
+          <th>country</th>
+          <th>age</th>
+          <th>birthday</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @club.players.each do |player| %>
+          <tr>
+            <td><%= "#{player.firstname} #{player.lastname}" %></td>
+            <td><%= player.position %></td>
+            <td><%= player.country %></td>
+            <td><%= player.age %></td>
+            <td><%= player.birthday %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </p>
+</section>
+
+<%= link_to 'Back To Match Results', matches_path %>

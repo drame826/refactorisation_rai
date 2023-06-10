@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Matche Results</h1>
+
+<% League.all.each do |league| %>
+    <div style="display: flex;">
+      <h2><%= league.name %></h2>
+      <%= link_to "Show league table", league, style: "margin: auto 35px;" %>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Kicked off at</th>
+          <th>Home team</th>
+          <th>Home team score</th>
+          <th>Away team score</th>
+          <th>Away team</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @matches.where(league: league).each do |match| %>
+          <tr>
+            <td><%= formatted_time_in(match.kicked_off_at, league.time_zone) %></td>
+            <td><%= link_to match.home_team.name, match.home_team %></td>
+            <td><%= match.home_team_score %></td>
+            <td><%= match.away_team_score %></td>
+            <td><%= link_to match.away_team.name, match.away_team %></td>
+            <td><%= link_to 'Show', match %></td>
+            <td><%= link_to 'Edit', edit_match_path(match) %></td>
+            <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+<% end %>
+
+<br>
+
+<%= link_to 'New Match', new_match_path %>
