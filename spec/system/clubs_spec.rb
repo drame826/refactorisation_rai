@@ -34,7 +34,7 @@ describe 'Club CRUD functions', type: :system do
         end
 
         it 'The average age of the players is displayed correctly' do
-          expect(page).not_to have_content '25.0'
+          expect(page).to have_content '25.0'
         end
       end
     end
